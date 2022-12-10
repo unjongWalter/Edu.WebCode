@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>If</title>
+</head>
+<body>
+	<h1>JavaScript if문, 비교연산자, 삼항연산자</h1>
+	<input type="text" id="input">
+	<button onclick="input()">전송스</button>
+	<div id="output"></div>
+
+	<script type="text/javascript">
+		function input() {
+			var output = document.getElementById('output');
+			var x = document.getElementById('input').value;
+			// input.value : 입력받은 데이터를 저장
+			console.log(x);
+			console.log(typeof x);
+			
+			// 변수명 output을 test로 다 바꿔라.
+			if (x > 0) {
+				output.innerHTML += '양수<br>';
+			} else if (x == 0) {
+				output.innerHTML += '0<br>';
+			} else if (x < 0) {
+				output.innerHTML += '음수<br>';
+			}
+
+			// ==, != : 자동 형변환이 발생, 값만 비교함(<, > ...도)	
+			var age = '16'; // 문자열
+			if (age == 16) {
+				output.innerHTML += '== 연산자 결과 : 참<br>';
+			} else {
+				output.innerHTML += '== 연산자 결과 : 거짓<br>';
+			}
+
+			// ===, !== : 타입과 값을 함께 비교
+			var age = '18'; // 중복선언 가능
+			if (age === 18) {
+				output.innerHTML += '=== 연산자 결과 : 참<br>';
+			} else {
+				output.innerHTML += '=== 연산자 결과 : 거짓<br>';
+			}
+
+			console.log(output);
+			//	var x = 100;
+
+			var msg = (x > 0) ? '양수+2' : '음수-2';
+			output.innerHTML += msg + '<br>';
+
+		}//end input()
+	</script>
+
+</body>
+</html>

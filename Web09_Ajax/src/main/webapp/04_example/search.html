@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+  <h3>아래에 글을 입력해주세요.</h3>
+  <p>
+    추천 : <br><span id="txtHint"></span>
+  </p>
+  <p>
+    첫 글자 : <input type="text" id="txt">
+  </p>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  		$('#txt').keyup(function(){
+  			var val = $('#txt').val();
+  			console.log(val);
+  			$.ajax({
+  				type : 'get', 
+  				url : '../search.do',
+  				data : {keyword : val}, 
+  				success : function(result){
+  					console.log(result);
+  					var obj = JSON.parse(result);
+  					var list = "";
+  					for(var x in obj) {
+  						list += "<a id='test' href='../title.do?title=" + obj[x].title + "'>" + obj[x].title + "</a><br>";
+  					}
+  					var txtHint = $('#txtHint');
+  					txtHint.html(list);
+  				}
+  			}); // end ajax()
+  		}); // end txt.keyup()
+  	}); // end document()
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String</title>
+</head>
+<body>
+	<h1>잡스 String</h1>
+	<!-- 
+	* 잡스 String
+	- 문자열 객체와 문자열 상수가 존재
+	- 문자열은 내장 메소드를 포함
+	- 특수 기호(Escape Sequence)사용에 유의
+	-->
+
+	<p id="demo"></p>
+	<div id="output"></div>
+	<script type="text/javascript">
+		var x = "";
+
+		/* x = "Hello. Yours are "mok"... wew...!"; */		
+		// Excape Sequence : 문자열 내에서 특수한 기능을 수행하는 문자(', ", \)
+		x = "Hello. Yours are \"mok\"... wew...!";
+		
+		var demo = document.getElementById("demo");
+		demo.innerHTML += 'x1 = ' + x + '<br>';
+		
+		x = "The character \\ is called backslash";
+		demo.innerHTML += 'x2 = ' + x + '<br>';
+		
+		var output = document.getElementById('output');
+		
+		var str1 = '안녕.'; // 문자열 상수(String Literal)
+		var str2 = '안녕.';
+		if(str1 == str2) {			
+			output.innerHTML += '같은 객체1 <br>';			
+		} else {
+			output.innerHTML += '다른 객체1 <br>';			
+		}
+		
+		var str3 = new String('he'); // 문자열 상수(String Literal)
+		var str4 = new String('he');
+		if(str3 == str4) {			
+			output.innerHTML += '같은 객체2 <br>';			
+		} else {
+			output.innerHTML += '다른 객체2 <br>';			
+		}
+		
+		var str5 = '안녕잡스, 잡스! 잡스 "너"는 쉽니? 잡스.'; // 작따 속에 큰따 밑장뺴기면 es seq 안해도됨
+		output.innerHTML += 'str5 = ' + str5 + '<br>';
+		
+		/* String Method */
+		// length : 문자열 길이 출력, 메소드가 아니라 property
+		// indexOf() : 문자열의 시작 위치를 리턴
+		// lastIndexOf() : 문자열의 끝 위치를 리턴
+		output.innerHTML += 'length : ' + str5.length + '<br>';
+		output.innerHTML += 'indexOf() : ' + str5.indexOf('잡스') + '<br>';
+		output.innerHTML += 'lastIndexOf() : ' + str5.lastIndexOf('잡스') + '<br>';
+		
+		// search() : 문자열 검색
+		output.innerHTML += 'serch() : ' + str5.search('잡스') + '<br>';
+		output.innerHTML += 'serch() : ' + str5.search(/잡스/) + '<br>';
+		
+		// match() : 일치하는 문자열을 리턴
+		output.innerHTML += 'match() : ' + str5.match('잡스') + '<br>';
+		output.innerHTML += 'match() : ' + str5.match(/잡스/g) + '<br>';
+		output.innerHTML += '찾은 갯수 : ' + str5.match(/잡스/g).length + '<br>';
+				
+		// JaS 정규표현식 : /패턴/옵션
+		// 옵션 : 
+		// 1) g(global) : 일치하는 모든 패턴을 찾음
+		// 2) i(case-insensitive) : 대소문자 구분없이 패턴을 찾음
+		
+		output.innerHTML += '<br>';
+		// 문자열 자르기
+		// - slice(startIndex, endIndex)
+		// - startIndex는 포함한 위치, endIndex는 위치의 -1까지 문자열 자르기
+		// - 음수 인덱스 사용 가능
+		output.innerHTML += 'slice() : ' + str5.slice(4, 10) + '<br>';
+		output.innerHTML += 'slice() : ' + str5.slice(-13, -7) + '<br>';
+	
+		// - substring(startIndex, endIndex)
+		// - 음수 인덱스 사용 가능
+		output.innerHTML += 'substring() : ' + str5.substring(4, 10) + '<br>';
+		
+		// - substr(startIndex, length)
+		// - startIndex부터, length만큼 문자열 자르기
+		output.innerHTML += 'substr() : ' + str5.substr(4, 6) + '<br>';
+		output.innerHTML += '<hr>';
+		
+		// - replace(original, change)
+		// original string을 change string으로 변경
+		var str6 = 'Hello, JavS. "JavS" is itzy.';
+		output.innerHTML += 'replace() : ' + str6.replace('JavS', 'JAVS') + '<br>';
+		output.innerHTML += 'replace() : ' + str6.replace(/JavS/g, 'JAVS') + '<br>';
+			
+		// 대소문자 변경
+		// toUpperCase
+		// toLowerCase
+		var str7 = 'JavaScript';
+		output.innerHTML += 'toUpperCase() : ' + str7.toUpperCase() + '<br>';
+		output.innerHTML += 'toLowerCase() : ' + str7.toLowerCase() + '<br>';
+		
+		// - split(String) : 
+		// String을 기준으로 문자열을 나눠서 배열 형태로 저장
+		var str8 = 'admin, admin123, admin@test.com';
+		var info = str8.split(',');
+		output.innerHTML += 'split length : ' + info.length + '<br>';
+		output.innerHTML += info.toString() + '<br>';
+		for(x in info) { // x : from index... wow1! SPLENDID! 
+			output.innerHTML += x + ' 번째 : ' + info[x] + '<br>';
+		
+		}
+		
+	</script>
+
+</body>
+</html>

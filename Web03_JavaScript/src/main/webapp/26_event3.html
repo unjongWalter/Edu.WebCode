@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+h1 {
+	background-color: pink;
+	color: white;
+	font-size: 2.5em;
+	text-align: center;
+}
+
+.main-panel {
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	background-color: lightgreen;
+	color: white;
+}
+
+.sub-panel {
+	font-size: 1em;
+	font-weight: normal;
+	color: black;
+	text-align: left;
+	border-top: 1px solid white;
+	background-color: lavender;
+	display: none;
+}
+
+ul {
+	list-style-type: none;
+}
+</style>
+
+</head>
+<body>
+	<h1 style="visibility: hidden;" id="title">Visibility/Display속성 변경</h1>
+	<button onclick="hide()">Hide</button>
+	<button onclick="show()">Show</button>
+	<button onclick="none()">Display None</button>
+	<button onclick="block()">Display Block</button>
+
+	<hr>
+	<div class="main-panel" onclick="toggleSub(this)">
+
+		메인 판넬 클릭해봐라...
+		<div class="sub-panel">
+			<ul>
+				<li><a href="https://www.google.com">google</a></li>
+				<li><a href="https://www.daum.net">daum</a></li>
+				<li><a href="https://www.naver.com">naver</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var title = document.getElementById('title');
+
+		function hide() {
+			title.style.visibility = 'hidden';
+		}
+
+		function show() {
+			title.style.visibility = 'visible';
+		}
+
+		function none() {
+			title.style.display = 'none';
+		}
+		
+		function block() {
+			title.style.display = 'block';
+		}
+
+		function toggleSub(main) {
+			var sub = main.firstElementChild; // 자식 중 첫째 요소
+
+			if (sub.style.diplay == 'none') {
+				sub.style.display = 'block';
+			} else {
+				sub.style.display = 'none';
+			}
+		}
+	</script>
+</body>
+</html>

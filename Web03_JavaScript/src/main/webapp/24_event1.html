@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+</head>
+<body onload="//window.alert('hey')">
+	<h1 id="title" onclick="test1()"
+					onmouseover="test2()"
+					onmouseout="test3()">
+					잡스 이벤또 핸들링</h1>
+					
+	<script type="text/javascript">
+		var title = document.getElementById('title');
+		var toggle = true;
+		
+		// 클릭하면 '잡스 이벤트 처리' 글자로 변하고
+		// 재클릭 시, '잡스 이벤또 핸들링'이라고 변하도록
+		// toggle 써봐라
+		function test1(){
+			if(toggle){
+				title.innerHTML = '잡스 이벤또 처리';
+				toggle = false;
+			} else {
+				title.innerHTML = 'JavS Event Handling';
+				toggle = true;
+			}			
+		}//end test1()
+		
+		function test2(){
+			title.style.backgroundColor = 'hotpink';
+			title.style.color = 'white';
+		}//end test2()
+		
+		function test3(){
+			title.style.backgroundColor = 'white';
+			title.style.color = 'black';
+		}//end test3()
+			
+	</script>
+
+</body>
+</html>

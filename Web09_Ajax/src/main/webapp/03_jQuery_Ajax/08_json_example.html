@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Member Info</title>
+</head>
+<body>
+	<h2>Member Info</h2>
+	<p id="info"></p>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		// $.get(url, callback)
+		// $.getJSON(url, data, callback) : 요청한 url의 JSON 데이터 호출
+		// url : 서버 요청 주소
+		// data : 요청과 함께 보낼 데이터(선택)
+		// callback : JSON 데이터가 리턴됐을 때 처리할 함수
+		
+		getData(); // 함수 call! / 위치 확인 function getData 끝에 해도됨.
+		function getData() {
+			$.getJSON(
+					'../info.do',
+					function(jsonData){ // data 생략, callback에 해당
+						console.log(typeof jsonData); // jsonData : info.do에서 넘어온 JSON data
+						var result = '';
+							result += jsonData.userid + "<br>"
+								+ jsonData.password + "<br>"
+								+ jsonData.email + "<br>";
+							$('#info').html(result);
+							// test(); 이런식으로 순서를 정할순있다.
+							// 비동기인 getData는 서버에 갔다오기에 우선일수밖에...
+					}		
+			);//end getJSON()			
+			
+		}//end getData()		
+		
+	});//end docu	
+	
+	</script>
+</body>
+</html>

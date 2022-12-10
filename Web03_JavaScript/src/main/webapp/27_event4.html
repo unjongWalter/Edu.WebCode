@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>JavS Event</h1>
+	<input type="text" name="userName" id="userName" autofocus
+	onfocus="changeBgColor(this)" onblur="resetBgColr(this)" onchange="toUpper(this)">
+	
+	<select onchange="select(this)">
+		<option value="1">red</option>
+		<option value="2">green</option>
+		<option value="3">blue</option>			
+	</select>
+
+	<script type="text/javascript">
+	
+		// onfocus : 포커스 받았을 떄
+		function changeBgColor(input) {
+			input.style.backgroundColor = 'lightyellow';
+		}
+	
+		// onblur : 포커스를 잃었을 떄
+		function resetBgColor(input) {
+			input.style.backgroundColor = 'white';				
+		}
+		
+		// onchange : 입력 내용이 바뀌었을 때(입력 후 엔터나 탭키를 입력했을 떄)
+		function toUpper(input) {
+			input.value = input.value.toUpperCase();
+		}			
+		
+		// select 옵션을 선택하면 body 색이 글자와 동시 변경
+		function select(sel) {
+			console.log(sel.value);
+			var selected = sel.value; // 옵션 선택값 저장
+			switch(selected) {
+			case '1' :
+				document.body.style.backgroundColor = 'red';
+				break;
+			case '2' :
+				document.body.style.backgroundColor = 'green';
+				break;
+			case '3' :
+				document.body.style.backgroundColor = 'blue';
+				break;			
+			}						
+		}		
+			
+	</script>
+
+</body>
+</html>

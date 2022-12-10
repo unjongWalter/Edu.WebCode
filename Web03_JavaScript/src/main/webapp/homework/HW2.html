@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연락처 프로</title>
+</head>
+<body>
+<!-- 
+연락처 프로그램 만들기
+- 입력, 전체 검색, 삭제 버튼을 이용한 연락처 프로그램
+입력을 누르면 : 
+'입력 완료' 알림창뜨면서, 정보 등록 
+전체검색을 누르면 :
+[0번] 이름 : ~~, 연락처 : ~~, 이메일 : ~~
+[1번] 이름 : ~~, 연락처 : ~~, 이메일 : ~~
+[2번] 이름 : ~~, 연락처 : ~~, 이메일 : ~~
+인덱스 입력하고 삭제를 누르면 :
+'삭제 완료' 알림창뜨면서, 정보 삭제 
+ -->
+	<h1>연락처 프로</h1>
+	이름 : <input type="text" id="name">
+	<br> 
+	연락처 : <input type="tel" id="phone">
+	<br> 
+	이메일 : <input type="email" id="email">
+	<br>
+	<br>
+	<button onclick="insert()">입력</button>
+	<button onclick="select()">전체검색</button>
+	인덱스 : <input type="number" id="index">
+	<button onclick="DELETE()">삭제</button>
+	<div id="output"></div>
+
+	<script type="text/javascript">
+	
+		var contact; // 이름 외 값 객체로 저장, vo 기능
+		var contactList = new Array(); // 연락처 객체 배열로 저장
+		var cname = document.getElementById('name');
+		var phone = document.getElementById('phone');
+		var email = document.getElementById('email');
+		var index = document.getElementById('index');
+		var output = document.getElementById('output');
+		
+		function insert() {
+			console.log('insert() 확인');
+
+			var nameValue = cname.value;
+			var phoneValue = phone.value;
+			var emailValue = email.value;			
+			contact = {name : nameValue, phone : phoneValue, email : emailValue};
+			// { name : p value }
+			console.log(contact);			
+			contactList.push(contact);
+			
+			alert('[index ' + (contactList.length - 1) + '] 입력되었다...');
+		}//end insert
+
+		function select() {
+			output.innerHTML = ''; // div text 초기화하는놈... 비워둬라...
+			for (x in contactList) {
+				output.innerHTML += x + '번> 이름 : ' + contactList[x].name
+						+ ' | 전화번호 : ' + contactList[x].phone + ' | 이메일 : '
+						+ contactList[x].email + '<br>';
+			}
+			alert('전체 다 보여줬다아이가');
+		}//end select
+				
+		function DELETE() {
+			var indexValue = index.value;
+			contactList.splice(indexValue, 1); // 삭제 후 해당 인덱스 빈칸 채워서 땡겨온다.
+			// contactList(indexValue) = '';  // 삭제 후 해당 인덱스 빈칸 그대로 냅둔다.
+			alert('[index ' + indexValue + '] 삭제되었다...');
+		}//end delete
+		
+	</script>
+
+</body>
+</html>

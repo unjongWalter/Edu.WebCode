@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Text suggestion</title>
+</head>
+<body>
+	<h3>Insert Contents here</h3>
+	<p>
+	first letter : <input type="text" id="txt" onkeyup="showHint(this.value)">
+	</p>
+	<p>
+	suggest : <span id="txtHint"></span>
+	</p>
+	<!-- 온키업 : this는 input 태그 자체를 의미, 공백같은 예외를 사전에 차단하자. -->
+	<script type="text/javascript">	
+	
+		 function showHint(str) {
+	            console.log(str);
+	            if(str.length == 0) {
+	            	document.getElementById("txtHint").innerHTML = "";	            	
+	            	return;
+	            }
+			
+	        var xhttp = new XMLHttpRequest();	        
+	        xhttp.onreadystatechange = function() {
+	          if (this.readyState == 4 && this.status == 200) {
+	        	
+		        document.getElementById("txtHint").innerHTML = this.responseText;
+	        		        	  
+	            myFunction(this); // 리턴 정보를 this가 가지고 있고, myFunction에 인자값으로 전달
+	          }
+	        };
+	        xhttp.open("GET", "04_get_hint.jsp?q=" + str, true);
+	        xhttp.send(); // 글로 써봐.
+	      } 
+			 
+	/* var regEx = /^[가-힣]{1,}$/; */
+								
+	</script>
+</body>
+</html>

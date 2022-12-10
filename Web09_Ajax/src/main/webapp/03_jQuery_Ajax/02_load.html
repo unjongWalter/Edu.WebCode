@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>jQuery Ajax load</title>
+</head>
+<body>
+				<!--callback : 메모 해놓은 것... 사와~ 해와~ -->
+	<div id="output">
+		<h2>jQuery Ajax로 이 텍스트 변경 해보자잉</h2>	
+	</div>
+	<button>외부 컨텐츠 갖고온나</button>
+	<script type="text/javascript">
+		// * jQuery Ajax
+		// - jQuery는 Ajax의 다양한 기능을 사용할 수 있음
+		// - jQuery Ajax 메소드를 사용하면
+		// 서버에서 텍스트, HTML, XML 또는 JSON 요청이 가능
+		// $(selector).load(URL, data, callback);
+		// output에다가 로드한 결과를 넣는다(selector 이벤트 기능)
+		
+		// URL : 파일 또는 서버 통신 경로
+		// data : 보낼 데이터
+		// callback : load가 수행되고 해야할 기능
+		
+		// load로 해봄...		
+		$(document).ready(function(){
+			$('button').click(function(){
+				$('#output').load("01_demo_test.txt #p1", function(responseTxt, statusTxt, xhr){
+										
+					if(statusTxt == "success") { // 1
+						alert('success');
+					} else {
+						alert('Error : ' + xhr.status + " : " + xhr.statusText);
+						
+					}
+				});
+						
+			});			
+			
+		});
+		
+	</script>
+</body>
+</html>

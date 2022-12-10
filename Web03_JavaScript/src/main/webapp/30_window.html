@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Window</title>
+<script type="text/javascript">
+window.onload = function() {
+	// window.onload : 
+	// - 문서를 모두 로딩해서 화면(윈도우)의 로딩이 끝났을 떄 생성 이벤트
+	// - 모든 자바스 코드는 윈도우.온로드 이벤트 리스너
+	// 함수 내부에서 작성하는 것이 좋음
+	
+	var output1 = document.getElementById('output1');
+	var innerWidth = 100;
+	output1.innerHTML += 'hello<br>';
+	output1.innerHTML += 'width : ' + window.innerWidth + '<br>';
+	output1.innerHTML += 'width : ' + innerWidth + '<br>';
+}
+</script>
+
+</head>
+<body>
+<h1>JavS window object</h1>
+<div id="output1"></div>
+<div id="output2"></div>
+<script type="text/javascript">
+	// DOM : html, hdae, body,...
+	// BOM(browser object model) : window, screen, location, history
+	// windiw object : 브라우저 창 정보를 갖고 있는 객체, html 객체의 최상위 객체
+
+	var output2 = document.getElementById('output2');
+	var innerWidth = 100;
+	output2.innerHTML = 'width : ' + window.innerWidth;
+	
+	if(window.innerWidth <= 400) {		
+		
+		alert('too small');
+	//	window.innerWidth = 700;
+	}	
+
+</script>
+
+</body>
+</html>

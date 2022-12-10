@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>사칙연산스</h1>
+	<input type="number" id="fN">
+	<input type="number" id="sN">
+	<button onclick="plus()">plus</button>
+	<button onclick="minus()">minus</button>
+	<button onclick="multiple()">multiple</button>
+	<button onclick="divide()">divide</button>
+	<div id="output"></div>
+
+	<script type="text/javascript">
+		// input 태그에 입력된 값(value)을 가져오기 위해서는 value 속성을 사용
+		// 함수가 실행되는 시점의 value값을 가져아야 함
+		var fN = document.getElementById('fN');
+		var sN = document.getElementById('sN');
+		var output = document.getElementById('output');
+
+		function plus() {
+			var x = parseInt(fN.value);
+			var y = parseInt(sN.value);
+			output.innerHTML += x + ' + '+ y + ' = ' + (x + y) + '<br>';
+
+		}//end plus()
+		function minus() {
+			var x = parseInt(fN.value);
+			var y = parseInt(sN.value);
+			output.innerHTML += x + ' - '+ y + ' = ' + (x - y) + '<br>';
+
+		}//end minus()
+		function multiple() {
+			var x = parseInt(fN.value);
+			var y = parseInt(sN.value);
+			output.innerHTML += x + ' * '+ y + ' = ' + (x * y) + '<br>';
+
+		}//end multiple()
+		function divide() {
+			var x = parseInt(fN.value);
+			var y = parseInt(sN.value);
+			output.innerHTML += x + ' / '+ y + ' = ' + (x / y) + '<br>';
+
+		}//end divide()
+				
+	</script>
+
+</body>
+</html>

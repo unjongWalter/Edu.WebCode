@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>장바구니!!!</title>
+</head>
+<body>
+	<h1>잡스 DOM(Document Object Model)</h1>
+	<input id="output" type="text" value="hello">
+	<p id="para" style="color: white; background-color: pink;">
+	여기는 <span style="font-weight: hold; color: black;">단락</span>
+	</p>
+	<div id="output" style="border: 1px solod gray"></div>
+
+<script type="text/javascript"> 
+// * DOM
+// - 표준 객체 모델
+// - HTML을 위한 프로그래밍 인터페이스
+// - 모든 HTML요소의 프로퍼티
+// - 모든에 접근하는 메소드
+// - 모든 HTML을 위한 이벤트
+
+	var output = document.getElementById('output');
+	var para = document.getElementById('para');
+	var input = document.getElementById('input');
+	
+	// HTML 요소가 가진 contents : innerHTML 읽기, 쓰기
+	output.innerHTML += para.innerHTML + '<br>';
+	
+	// HTML 요소 속성 (attribute) : Element.attribute
+	output.innerHTML += para.id + '<br>';
+	output.innerHTML += 'input value : ' + input.value + '<br>';
+	
+	// HTML 요소 스타일 : element.style.property
+	output.innerHTML += para.style.color + '<br>';
+
+	// 왼쪽은 쓰기 그릇용, 오른쪽은 읽기용
+	// 애치티엠엘 요소 변경하기
+	
+	input.value = '변경됨';
+	para.style.color = 'red';
+	para.style.backgroundColor = 'white';
+	
+	// HTML dom 이용 요소 접근 법
+	output.innerHTML += 'tagName : ' + para.tagName + '<br>';
+	output.innerHTML += 'paraElement : ' + para.parentElemnt + '<br>';
+	
+	// body backgroundColor lightgrey 변경
+	para.paarentElement.style.backgroundColor = 'lightgrey';
+	output.innerHTML += 'children : ' + para.children[0] + '<br>';
+	output.innerHTML += para.previousElementSibling + '<br>';
+	output.innerHTML += para.nextElementSibling + '<br>';
+		
+</script>
+
+</body>
+</html>

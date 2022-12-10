@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>JavS HTML Event Handling</h1>
+
+	<p onclick="this.style.backgroundColor='pink';">onClick 이벤트에서 코드 작성</p>
+	<p onclick="alert('hey?')">다이얼띄우기</p>
+	<p onclick="change(this)">onClick 속성 JS호출</p>
+	<p id="para">Script이벤트 리스너 등록</p>
+
+	<script type="text/javascript">
+	function change(para) {// this = para : 함수 호출 요소의 객체
+		console.log(para);
+		para.innerHTML = 'hey';
+		para.style.border = '2px solid gray';
+		para.style.backgroundColor = 'lavender';
+		para.style.color = 'white';
+		para.style.fontSize = '2em';
+		
+		// em 브라우저에서 설정된 기본 폰트 크기
+		para.style.margin = '50px';
+		
+	}
+	
+	var para = document.getElementById('para');
+	// HTML element에 이벤트 핸들러 등록
+	para.onclick - function() {
+		para.innerHTML = 'change';
+		para.fontSize = '3em';
+		para.style.fontWheight = 'bold';		
+	}	
+	
+	</script>
+
+</body>
+</html>

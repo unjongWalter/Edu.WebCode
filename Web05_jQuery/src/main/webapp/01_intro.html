@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Intro</title>
+	<!--	
+	* jQuery란?
+	- JavS를 더 쉽게 사용하려는 목적으로 만든 라이브러리(굳 확장성, 대중적)
+	 -->
+	 
+	<!-- 
+	 jQuery 사용 방법 
+	1. 파일을 다운받아서 경로로 불러오기(사용자 입장에서 보다 나음)
+	ㄴ 서버에 라이브러리 파일을 받아서 사용	 
+	2. http url 경로로 불러오기
+	ㄴ 외부 서버에 있는 라이브러리를 호출
+	  -->
+	  
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" 
+integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" 
+crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	// Dom이 전부 등록된 후 실행되는 함수 : $(document).ready(); 안정성을 위해 꼭 써라
+	// 스크립트를 어느 위치에서 선언해도 문제 ㄴㄴ
+	$(document).ready(function() {
+		$('h2').click(function() {
+			$(this).hide(); // this : h2를 가리킴
+		}); // end h2.click()		
+	}); //end document	
+	
+</script>
+</head>
+<body>
+	<h1>jQuery 사용</h1>
+	<h2>치우고 싶다면 클릭해</h2>
+	<h2>h2태그</h2>
+
+</body>
+</html>

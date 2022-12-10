@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For</title>
+</head>
+<body>
+	<h1>자바스크립트 for문, 전역/지역 변수</h1>
+	<div id="output"></div>
+	<script type="text/javascript">
+		// * 자바스크립트의 전역변수, 지역변수 선언
+		// - 자바스크립트의 전역변수(Global Variable) :
+		//	<script> 태그 안에서 선언된 변수
+		
+		//	선언된 위치와 노상관 변수를 사용할 수 있음
+		// * 주의) 전역변수 사용 x, 지역변수 사용이 안전하다.
+		
+		// - 자바스크립트의 지역변수(Local Variable) :
+		// 	함수(function) 내부에서 선언된 변수
+		var output = document.getElementById('output');
+		
+		output.innerHTML += 'i = ' + i + '<br>';
+		var i = 1;
+		
+		// 자바스크립트의 반복문(전역변수 조심)
+		// - 자바 문법과 동일
+		for(var x = 1; x <= 6; x++){ // var x : x는 전역변수
+			output.innerHTML += '<h' + x + '> heading' + (x+1) +'<h' + x + '>';
+		}
+		output.innerHTML += x;
+		
+		function test() {
+			var n = 10; // 지역변수
+			output.innerHTML += 'test() 내부 : x = ' + x + '<br>';
+			output.innerHTML += 'test() 내부 : n = ' + n + '<br>';
+			
+		}
+		// 함수 호출(call)
+		test();
+
+		// not defined 값 자체가 없
+		// un 값이 안 들어가서~
+		output.innerHTML += 'test() 내부 : n = ' + n + '<br>';
+				
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>While</title>
+</head>
+<body>
+	<!-- div 요소에 자바스크립트를 이용하여 구구단 2단 출력하기 -->
+	<!-- div 요소에 자바스크립트를 이용하여 구구단 2~9단 출력하기 -->
+	<h1>자바스크립트 while문</h1>
+	<div id="output"></div>
+
+	<script type="text/javascript">
+	
+		// for문
+		output.innerHTML += '2단' + '<br>';
+		for (var x = 1; x <= 9; x++) {
+			x = parseInt(x);
+			output.innerHTML += '2' + '*' + x + '=' + '2' * x + '<br>';
+		}
+
+		output.innerHTML += '<br>' + '2단 ~ 9단' + '<br>';
+		for (var i = 2; i <= 9; i++) {
+			x = parseInt(i);
+			output.innerHTML += '<br>' + i + '단' + '<br>';
+		
+			for (var j = 1; j <= 9; j++) {
+				j = parseInt(j);
+				output.innerHTML += i + '*' + j + '=' + i * j + '<br>';		
+			}
+		}
+		
+/* 		 // while문
+		var output = document.getElementById('output');		
+		// 2단 출력
+		var n = 1;
+		while(n < 10) {
+			output.innerHTML += '2 X' + n + ' = ' + (2*n) + '<br>';
+			n++;			
+		}
+		output.innerHTML += '<hr>';
+		
+		// 2~9단
+		var dan = 2;
+		while(dan < 10){
+			n = 1;
+			while (n < 10){
+				output.innerHTML += dan + 'X' + n + ' = ' + (dan * n) + '<br>';
+				n++;
+			}
+			dan++;
+			output.innerHTML += '<hr>';			
+		}  */
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Ajax Method</title>
+</head>
+<body>
+	<div id="output">변경 내용?</div>
+	<button>외부 꺼 가온나</button>
+
+	<script type="text/javascript">
+		// * $.ajax()
+		// - ajax load 메소드를 간략화한 메소드
+		// - 기본형태
+		// $.ajax({name:value, name:value, ...});
+		// - name으로 선택할 수 있는 요소
+		// type : GET or POST
+		// url : 경로
+		// data : 보낼 데이터 패키지
+		// success : 호출 성공 시 리턴될 내용
+		// 경로 문제 : 외부 폴더 간 상위 지정 방식 = ../내용~
+		
+		/* destination <servlet>
+		http://localhost:8080/Web09_Ajax/ajax_test.do 
+
+		problem <issue> fix to the server
+		http://localhost:8080/Web09_Ajax/03_jQuery_Ajax/ajax_test.do
+
+		http://localhost:8080/Web09_Ajax/../ajax_test.do
+
+		<html>
+		http://localhost:8080/Web09_Ajax/03_jQuery_Ajax/03_ajax_method.html */
+		
+		
+		$(document).ready(function(){
+			$('button').click(function(){
+				$.ajax({
+					type : "get", // 선택지 타입? get or post
+					url : "../ajax_test.do",
+					data : {
+						id : "test", // request parameter를 id로 지정
+						pw : "1234" // request parameter를 pw로 지정, 서버사이드로 보내자
+						
+					},
+					success : function(result){
+						// result : ajax_test.do에서 작성된 내용을 리턴해서 저장한 결과
+						$('#output').html(result); // result의 내용을 output에 저장
+						
+					}
+										
+				});	// end ajax()
+				
+			}); // end button.cilcik()
+						
+		}); // end document
+			
+	</script>
+		
+</body>
+</html>

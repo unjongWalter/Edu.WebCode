@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get/Set</title>
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" 
+integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" 
+crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<h1>jQuery Getter/Setter</h1>
+	<p>우리는 <b>jQuery</b>를 공부 중</p> 
+	<button id="btn1">HTML</button>
+	<button id="btn2">Text</button>
+	<div id="output"></div>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#btn1').click(function(){
+				var msg = $('p').html(); // innerHTML에 해당 : 모든 HTML 내용 가져오기
+				$('#output').html(msg);
+				
+			});	// end btn1.click();
+			
+			$('#btn2').click(function(){
+				var msg = $('p').text(); // textContent : text만 가져오기
+				$('#output').html(msg);
+				
+			});	// end btn2.click();
+			
+			
+		}); //end document	
+	
+	</script>
+
+</body>
+</html>

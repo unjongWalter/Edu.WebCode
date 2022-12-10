@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>잡스 배열(Arrrrrrrrray)</h1>
+	<div id="output"></div>
+
+	<script type="text/javascript">
+	
+		var output = document.getElementById('output');
+		
+		// 배열선언 초기화 방법1
+		// var 배열이름 = [원소1, 원소2, ...]
+		var movies = ['한산', '헌트', '포로로'];
+		for(var i = 0; i < movies.length; i++) {
+			output.innerHTML += movies[i] + '<br>';
+		}
+	
+		for(x in movies){			
+			output.innerHTML += x + ' : ' + movies[x] + '<br>';
+		}
+		
+		// 배열선언 초기화 방법2
+		var game = new Array('와우', '워바');
+		for(var i = 0; i < game.length; i++) {
+			output.innerHTML += 'game : ' + game + '<br>';
+		}
+	</script>
+
+</body>
+</html>

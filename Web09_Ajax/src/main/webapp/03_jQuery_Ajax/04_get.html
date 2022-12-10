@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Get Method</title>
+</head>
+<body>
+	<button>HTTP Get Request -> page, return the result</button>
+	<script type="text/javascript">
+	// $.get(url, callback);	
+	// insert select update : post type
+	$(document).ready(function(){
+		$('button').click(function(){
+			$.get("04_get_test.jsp", function(data, status){
+				alert("Data : " + data + "\n status : " + status);				
+				
+			});//end get()
+			
+		});//end button.click()		
+				
+	});//end document	
+	
+	</script>
+
+</body>
+</html>

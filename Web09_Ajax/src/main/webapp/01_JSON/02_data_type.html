@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON Data Type</title>
+</head>
+<body>
+
+	<h1>JSON Data Type</h1>
+	<div id="output"></div>
+	
+	<script type="text/javascript">	
+		// * JSON Data Type
+		// - 문자열
+		// - 숫자
+		// - 객체(JSON 객체)
+		// - 배열
+		// - 논리형
+		// - null
+		
+		// 문자열
+		var str = {"name" : "mok"};
+		
+		// 숫자
+		var num = {age : 200};
+		
+		// 예제
+		var obj = {
+			"employee" : {"name" : "mok", "age" : 2000, "city" : "Incheon"}
+		};
+			
+		document.getElementById("output").innerHTML += obj + "<br>";
+		document.getElementById("output").innerHTML += obj.employee.name + "<br>";
+		document.getElementById("output").innerHTML += obj.employee.age + "<br>";
+		document.getElementById("output").innerHTML += obj.employee.city + "<br>";
+		
+	</script>
+
+</body>
+</html>

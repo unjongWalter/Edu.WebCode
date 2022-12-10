@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Login Page</title>
+</head>
+<body>
+	<h1>Login Page</h1>
+	<div>
+		id : <input type="text" id="userid"><br>
+		pw : <input type="password" id="password"><br>
+		<button id="loginBtn">login</button>
+		
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('#loginBtn').click(function(){
+			var userid = $('#userid').val(); // input의 value
+			var password = $('#password').val(); // 시점 문제... 흐름 파악 필요
+				console.log("userid : " + userid);
+				console.log("password : " + password);
+				
+				// 보내기 위한 포장(key, value라서 var userid랑 value가 동일)
+				var obj = {
+					userid : userid,
+					'password' : password
+											
+				};
+				
+				// ajax로 전송 요청
+				$.ajax({
+					type : 'post',
+					url : '../login.do',
+					data : {'obj' : JSON.stringify(obj)},// JSON으로 변환
+					success : function(result){					
+						if(result == 'success'){
+						alert(result);
+						}
+					}					
+										
+				});//end ajax()				
+				
+			});//end loginBtn
+						
+		});//end docu
+	
+	</script>
+	
+</body>
+</html>

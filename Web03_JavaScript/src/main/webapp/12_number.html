@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>number</title>
+</head>
+<body>
+	<h1>잡스 Number</h1>
+	<div id="output"></div>
+	<input type="number" id="num">
+	<button onclick="test()">click</button>
+
+	<script type="text/javascript">
+		var output = document.getElementById('output');
+
+		// * JavS 숫자 특징
+		// 1) 지수표기법 사용 가능스
+
+		var x = 123e5; // 123 * 10^5
+		var y = 123e-5; // 123 * 10^-5
+		output.innerHTML += x + '<br>';
+		output.innerHTML += y + '<br>';
+
+		// 2) 정수는 15자릿수로 표현한다.
+		x = 999999999999999;
+		y = 9999999999999999;
+		output.innerHTML += x + '<br>';
+		output.innerHTML += y + '<br>';
+		
+		// 3) 소숫점 연산은 100% 정확한 것은 아니다.
+		x = 0.1 + 0.2;
+		output.innerHTML += x + '<br>';
+		var a = 0.1;
+		var b = 0.2;
+		// solutions? : 정수 형태로 연산 변환한다.
+		x = (a * 10 + b * 10)/ 10;
+		output.innerHTML += x + '<br>';		
+		
+		function test() {
+			console.log(num.value);
+			
+			// 문자를 정수로 변환 : parseInt()
+			// 문자를 실수로 변환 : parseFloat()
+			output.innerHTML += parseInt(num.value)	+ 1;			
+		}
+		
+	</script>
+</body>
+</html>

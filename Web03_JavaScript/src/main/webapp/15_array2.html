@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Arraaaaaaaaayyyyyyyyyyyyyyyyy2</title>
+</head>
+<body>
+	<h1>잡스 배열2</h1>
+	<div id="output"></div>
+
+	<script type="text/javascript">
+		var output = document.getElementById('output');
+		
+		// 잡스 배열은 서로 다른 타입의 원소를 지정할 수 있대
+		var arr = ['돌리', -1, true, '*(&@$*(&!$*&))'];
+		
+		for(x in arr) {
+			output.innerHTML += arr[x] + '<br>';
+		}
+		
+		output.innerHTML += arr + '<br>'; // arr.toString과 동일
+		output.innerHTML += '<hr>';
+			
+	</script>
+
+</body>
+</html>

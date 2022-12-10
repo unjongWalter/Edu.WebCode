@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>HTML 요소를 찾는법</h1>
+	<p id="p1">단락1</p>
+	<p id="p1">단락2</p>
+	<p class="c1">단락3</p>
+	<p class="c1">단락4</p>
+	<script type="text/javascript">
+		// * 자바스크립트 사용하여 요소 찾는 법
+		// 1. getElementById('id')
+		// 2. getElementsByTagName('tagName')
+		// 3. getElementsByClassName()
+		// 4. Css 선택자 : queryslectorAll('선택자')
+		// 5. HTML Object collection : body, form, images
+
+		document.getElementById('p1').style.backgroundColor = 'lightgreen';
+		// p1 아이디 두개 존재하지만, 1개만 적용
+
+		// p tag를 찾아서 배경색 변겅
+		var ps = document.getElementsByTagName('p');
+
+		for (var i = 0; i < ps.length; i++) {
+			ps[i].style.backgroundColor = 'lightblue';
+		}
+
+		// class = c1을 찾아서 변경
+		var ps = document.getElementsByTagName('c1');
+		for (var i = 0; i < ps.length; i++) {
+			ps[i].style.backgroundColor = 'cyan';
+		}
+
+		// css 선택자를 찾아서 변경
+		document.querySelector('.c1').style.backgroundColor = 'yellow';
+		ps = document.querySelectAll('.c1'); // all c1 class get
+		for (var i = 0; i < ps.length; i++) {
+			ps[i].innerHTML = 'change';
+		}
+				
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>질럿 마린</h1>
+	<img alt="" src="../images/marine.png" id="imgMarine">
+	<img alt="" src="../images/zilot.png" id="imgZilot">
+	<div id="output"></div>
+	
+	<script type="text/javascript">
+		var zilotImg = document.getElementById('imgZilot');
+		var marineImg = document.getElementById('imgMarine');
+		
+		var output = document.getElementById('output');
+		
+		// 생성자 함수
+		function Unit(name, hp, power, defence) {
+			this.name = name;
+			this.hp = hp;
+			this.power = power;
+			this.defence = defence;
+			
+			this.attack = function(Unit){
+				var damage = this.power - Unit.defence;
+				
+				// 예외처리 1 : 댐지 음수면 댐지 0에서 멈추게 해봐라
+				if(damage < 0 ) {
+					damege = 0;					
+				}
+				
+				Unit.hp = Unit.hp - damage;				
+				
+				if(Unit.hp <= 0) {
+					alert(Unit.name + '뒤짐');
+					output.innerHTML ='';
+					return;					
+				}
+				
+				output.innerHTML += this.name + '놈이 공격함. <br>';
+				output.innerHTML += Unit.name + '놈은 공격받음. <br>';
+				output.innerHTML += Unit.name + '놈은' + damage + '의 댐지 받음. <br>';
+				output.innerHTML += Unit.name + '놈의 남은 hp : ' + Unit.hp + '<br>';
+				output.innerHTML += '<hr>';			
+			}			
+		}
+	
+		// 객체 선언
+		var zilot = new Unit('질럿', 100, 10, 10);
+		var marine = new Unit('마린', 50, 15, 5);
+		
+		zilotImg.onclick = function() {
+			alert('아이고메...');
+			zilot.attack(marine);
+		};
+		
+		marineImg.onclick = function() {
+			alert('댐비라');
+			marine.attack(zilot);
+		};		
+		
+	</script>
+	
+</body>
+</html>
